@@ -19,6 +19,9 @@
         <i class="fc-icon icon-delete"></i>
       </div>
     </div>
+    <div class="drag-tr">
+      {{fieldKey}}
+    </div>
     <slot name="default"></slot>
   </div>
 </template>
@@ -87,6 +90,14 @@ export default {
   z-index: 999;
 }
 
+.drag-tr {
+  position: absolute;
+  right: 2px;
+  top: 0px;
+  z-index: 999;
+  color: #2E73FF;
+}
+
 .drag-l {
   position: absolute;
   top: 0;
@@ -97,7 +108,7 @@ export default {
 
 .drag-btn {
   height: 18px;
-  width: 18px;
+  min-width: 18px;
   color: #fff;
   background-color: #2E73FF;
   text-align: center;

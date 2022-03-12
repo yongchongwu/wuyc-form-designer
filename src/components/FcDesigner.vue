@@ -668,8 +668,8 @@ export default {
                 this.$set(this.activeRule, field, value);
             }
             if(this.activeRule){
-                //let parentRule = this.activeRule.__fc__.parent.rule;
-                //parentRule.props.fieldKey=this.activeRule.field
+                let parentRule = this.activeRule.__fc__.parent.rule;
+                parentRule.props.fieldKey=this.activeRule.field
             }
         },
         propRemoveField(field, _, fapi) {
@@ -822,6 +822,7 @@ export default {
                     props: {
                         dragBtn: config.dragBtn !== false,
                         children: config.children,
+                        fieldKey: rule.field
                     },
                     effect: {
                         _fc_tool: true
@@ -860,6 +861,7 @@ export default {
                     props: {
                         dragBtn: config.dragBtn !== false,
                         children: config.children,
+                        fieldKey: rule.field
                     },
                     effect: {
                         _fc_tool: true
@@ -884,7 +886,7 @@ export default {
                             const top = this.getParent(self);
                             let copyRule = formCreate.copyRule(top.parent);
                             top.root.children.splice(top.root.children.indexOf(top.parent) + 1, 0, copyRule);
-                            //copyRule.props.fieldKey=copyRule.children[0].field;
+                            copyRule.props.fieldKey=copyRule.children[0].field;
                             /*this.$nextTick(() => {
                                 copyRule.props.fieldKey=copyRule.children[0].field;
                             });*/
